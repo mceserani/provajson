@@ -52,8 +52,10 @@ public class ProvaJson {
 		}
 
 		try {
+			Utilities.deleteChars(log, 4);
 			out = new FileWriter(log, true); 
 			entry = mapper.writeValueAsString(new LogEntry(new Date(), "Log entry created"));
+			out.append("," + System.lineSeparator());
 			out.append(entry + System.lineSeparator());
 			out.append("]}");
 			out.close();
